@@ -1,55 +1,42 @@
-import { commands, CompleteResult, ExtensionContext, listManager, sources, workspace } from 'coc.nvim';
-import DemoList from './lists';
+import {
+  ServerOptions,
+  LanguageClientOptions,
+  ExtensionContext,
+  services,
+  workspace,
+  LanguageClient,
+} from 'coc.nvim'
+import which from 'which'
 
-export async function activate(context: ExtensionContext): Promise<void> {
-  workspace.showMessage(`coc-jedi works!`);
-
-  context.subscriptions.push(
-    commands.registerCommand('coc-jedi.Command', async () => {
-      workspace.showMessage(`coc-jedi Commands works!`);
-    }),
-
-    listManager.registerList(new DemoList(workspace.nvim)),
-
-    sources.createSource({
-      name: 'coc-jedi completion source', // unique id
-      shortcut: '[CS]', // [CS] is custom source
-      priority: 1,
-      triggerPatterns: [], // RegExp pattern
-      doComplete: async () => {
-        const items = await getCompletionItems();
-        return items;
-      }
-    }),
-
-    workspace.registerKeymap(
-      ['n'],
-      'coc-jedi-keymap',
-      async () => {
-        workspace.showMessage(`registerKeymap`);
-      },
-      { sync: false }
-    ),
-
-    workspace.registerAutocmd({
-      event: 'InsertLeave',
-      request: true,
-      callback: () => {
-        workspace.showMessage(`registerAutocmd on InsertLeave`);
-      }
-    })
-  );
+export async function commandExists(command: string): Promise<boolean> {
+  return new Promise((resolve): void => {
+    which(command, (err) => resolve(err == null))
+  })
 }
 
-async function getCompletionItems(): Promise<CompleteResult> {
-  return {
-    items: [
-      {
-        word: 'TestCompletionItem 1'
-      },
-      {
-        word: 'TestCompletionItem 2'
-      }
-    ]
-  };
+export async function activate(context: ExtensionContext): Promise<void> {
+  const command = 'jedi-language-server'
+
+  if (!(await commandExists(command))) {
+    workspace.showMessage('please install jedi-language-server; exiting')
+    return
+  }
+
+  const serverOptions: ServerOptions = {
+    command,
+    args: [],
+  }
+
+  const clientOptions: LanguageClientOptions = {
+    documentSelector: ['python'],
+  }
+
+  const client = new LanguageClient(
+    'jedi',
+    'jedi-language-server',
+    serverOptions,
+    clientOptions
+  )
+
+  context.subscriptions.push(services.registLanguageClient(client))
 }

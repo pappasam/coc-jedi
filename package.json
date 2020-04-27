@@ -1,12 +1,16 @@
 {
   "name": "coc-jedi",
-  "version": "0.0.0-development",
+  "version": "0.0.1",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
   "keywords": [
-    "coc.nvim"
+    "coc.nvim",
+    "python",
+    "jedi",
+    "vim",
+    "neovim"
   ],
   "engines": {
     "coc": "^0.0.70"
@@ -19,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^13.13.1",
+    "@types/which": "^1.3.2",
     "coc.nvim": "^0.0.77",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
@@ -35,18 +40,24 @@
       "type": "object",
       "title": "coc-jedi configuration",
       "properties": {
-        "coc-jedi.enabled": {
+        "jedi.enabled": {
           "type": "boolean",
           "default": true,
           "description": "Enable coc-jedi extension"
+        },
+        "jedi.completion.triggerCharacters": {
+          "type": "array",
+          "default": [
+            ".",
+            "'",
+            "\""
+          ],
+          "description": "Specify characters that automatically trigger completion"
         }
       }
-    },
-    "commands": [
-      {
-        "command": "coc-jedi.Command",
-        "title": "coc-jedi command title"
-      }
-    ]
+    }
+  },
+  "dependencies": {
+    "which": "^2.0.2"
   }
 }

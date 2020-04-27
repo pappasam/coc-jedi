@@ -2,6 +2,8 @@
 
 [coc.nvim](https://github.com/neoclide/coc.nvim) wrapper for Python's [jedi-language-server](https://github.com/pappasam/jedi-language-server).
 
+**Note:** this extension is incompatible with [coc-python](https://github.com/neoclide/coc-python). Uninstall coc-python before using coc-jedi.
+
 ## Install
 
 First, install [jedi-language-server](https://github.com/pappasam/jedi-language-server). I recommend using [pipx](https://github.com/pipxproject/pipx).

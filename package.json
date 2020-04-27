@@ -1,0 +1,52 @@
+{
+  "name": "coc-jedi",
+  "version": "0.0.0-development",
+  "description": "coc.nvim wrapper for the jedi-language-server for Python",
+  "author": "Sam Roeca <samuel.roeca@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "coc.nvim"
+  ],
+  "engines": {
+    "coc": "^0.0.70"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "prepare": "npm-run-all clean build"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.1",
+    "coc.nvim": "^0.0.77",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^7.0.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "coc-jedi configuration",
+      "properties": {
+        "coc-jedi.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable coc-jedi extension"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "coc-jedi.Command",
+        "title": "coc-jedi command title"
+      }
+    ]
+  }
+}

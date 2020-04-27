@@ -38,5 +38,15 @@ export async function activate(context: ExtensionContext): Promise<void> {
     clientOptions
   )
 
-  context.subscriptions.push(services.registLanguageClient(client))
+  context.subscriptions.push(
+    services.registLanguageClient(client),
+    // restart language server if relevant configuration options changed
+    // only updates based on items mounted at the 'jedi' key
+    workspace.onDidChangeConfiguration(async (e) => {
+      if (e.affectsConfiguration('jedi')) {
+        await client.stop()
+        client.restart()
+      }
+    })
+  )
 }

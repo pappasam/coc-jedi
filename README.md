@@ -6,27 +6,23 @@
 
 ## Install
 
-First, install [jedi-language-server](https://github.com/pappasam/jedi-language-server). I recommend using [pipx](https://github.com/pipxproject/pipx).
+First, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) on your system. I recommend using [pipx](https://github.com/pipxproject/pipx).
 
-Next, install using your preferred technique in Neovim / Vim.
+Next, install using 1 of the following techniques in Neovim / Vim:
 
-### Vim-Plug
+### CocInstall
 
-**Works right now**
+`:CocInstall coc-jedi`
 
-If you're using [vim-plug](https://github.com/junegunn/vim-plug):
+### Package/Plugin Manager
+
+If using [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 ```
 
 I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager), so if you'd like to go down the [package rabbit hole](https://shapeshed.com/vim-packages/), I suggest giving that a try.
-
-### Coc-Install
-
-**Does not work at this time, I haven't yet deployed to npmjs**
-
-`:CocInstall coc-jedi`
 
 ## Configuration
 

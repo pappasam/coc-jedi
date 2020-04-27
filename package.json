@@ -1,6 +1,6 @@
 {
   "name": "coc-jedi",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
   "license": "MIT",
@@ -53,6 +53,26 @@
             "\""
           ],
           "description": "Specify characters that automatically trigger completion"
+        },
+        "jedi.diagnostics.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable (or disable) diagnostics provided by Jedi"
+        },
+        "jedi.diagnostics.didOpen": {
+          "type": "boolean",
+          "default": true,
+          "description": "Run diagnostics on document open"
+        },
+        "jedi.diagnostics.didChange": {
+          "type": "boolean",
+          "default": true,
+          "description": "Run diagnostics on in-memory document change"
+        },
+        "jedi.diagnostics.didSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Run diagnostics on document save (to disk)"
         }
       }
     }

@@ -1,5 +1,8 @@
 # coc-jedi
 
+[![image-version](https://img.shields.io/npm/v/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
+[![image-license](https://img.shields.io/npm/l/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
+
 [coc.nvim](https://github.com/neoclide/coc.nvim) wrapper for Python's [jedi-language-server](https://github.com/pappasam/jedi-language-server).
 
 **Note:** this extension is incompatible with [coc-python](https://github.com/neoclide/coc-python). Uninstall coc-python before using coc-jedi.
@@ -8,13 +11,20 @@
 
 First, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) on your system. I recommend using [pipx](https://github.com/pipxproject/pipx).
 
-Next, install using 1 of the following techniques in Neovim / Vim:
+```bash
+pipx install jedi-language-server
+
+# to upgrade
+pipx upgrade jedi-language-server
+```
+
+Next, install in Vim / NeoVim with 1 of the following techniques:
 
 ### CocInstall
 
 `:CocInstall coc-jedi`
 
-### Package/Plugin Manager
+### Package Manager
 
 If using [vim-plug](https://github.com/junegunn/vim-plug):
 

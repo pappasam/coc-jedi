@@ -2,5 +2,5 @@ build:
 	yarn install --frozen-lockfile
 	yarn build
 
-publish:
+publish: build
 	yarn publish

@@ -18,7 +18,10 @@ export async function activate(context: ExtensionContext): Promise<void> {
   const command = 'jedi-language-server'
 
   if (!(await commandExists(command))) {
-    workspace.showMessage('please install jedi-language-server; exiting')
+    workspace.showMessage(
+      'jedi-language-server executable not found, server cannot start',
+      'error'
+    )
     return
   }
 

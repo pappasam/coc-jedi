@@ -1,6 +1,6 @@
 {
   "name": "coc-jedi",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
   "license": "MIT",
@@ -52,7 +52,16 @@
             "'",
             "\""
           ],
-          "description": "Specify characters that automatically trigger completion"
+          "description": "Characters that trigger completion automatically "
+        },
+        "jedi.signatureHelp.triggerCharacters": {
+          "type": "array",
+          "default": [
+            "(",
+            ",",
+            ")"
+          ],
+          "description": "Characters that trigger signatureHelp automatically"
         },
         "jedi.diagnostics.enabled": {
           "type": "boolean",

@@ -9,7 +9,7 @@
 
 ## Install
 
-First, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) on your system. I recommend using [pipx](https://github.com/pipxproject/pipx).
+First, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) on your system using [pipx](https://github.com/pipxproject/pipx).
 
 ```bash
 pipx install jedi-language-server
@@ -37,6 +37,14 @@ I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager),
 ## Configuration
 
 See [here](https://github.com/pappasam/jedi-language-server#configuration)
+
+## Debugging
+
+If something isn't working for some reason, try upgrading `jedi-language-server` to the latest version.
+
+```bash
+pipx upgrade jedi-language-server
+```
 
 ## License
 

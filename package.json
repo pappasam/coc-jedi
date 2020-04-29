@@ -1,6 +1,6 @@
 {
   "name": "coc-jedi",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
   "license": "MIT",
@@ -86,7 +86,5 @@
       }
     }
   },
-  "dependencies": {
-    "which": "^2.0.2"
-  }
+  "dependencies": {}
 }

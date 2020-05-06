@@ -30,4 +30,8 @@ export async function activate(context: ExtensionContext): Promise<void> {
       }
     })
   )
+
+  client.onReady().then(() => {
+    workspace.showMessage('jedi-language-server: started')
+  })
 }

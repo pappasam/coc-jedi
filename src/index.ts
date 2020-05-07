@@ -18,6 +18,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   }
   const clientOptions: LanguageClientOptions = {
     documentSelector: ['python'],
+    initializationOptions: config,
   }
   const client = new LanguageClient(
     'jedi',

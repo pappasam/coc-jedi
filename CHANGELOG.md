@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.5.0
+
+### Added
+
+- Documentation for all config options here
+
+### Changed
+
+- Pass jedi-rooted configuration to initializationOptions
+- `enabled` changed to `enable`. I see the option spelled this way in way more coc plugins and I'd like to be consistent with the ecosystem.
+
 ## 0.4.0
 
 ### Added

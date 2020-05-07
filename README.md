@@ -36,7 +36,20 @@ I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager),
 
 ## Configuration
 
-### jedi.enabled
+jedi-language-server supports top-level configuration items in `coc-settings.json` (or your editor-equivalent configuration file). The following is a snippet of `coc-settings.json` with defaults:
+
+```json
+{
+  "jedi.enable": true,
+  "jedi.trace.server": true,
+  "jedi.diagnostics.enable": true,
+  "jedi.diagnostics.didOpen": true,
+  "jedi.diagnostics.didChange": true,
+  "jedi.diagnostics.didSave": true
+}
+```
+
+### jedi.enable
 
 Enable (or disable) jedi-language-server.
 
@@ -56,9 +69,33 @@ To see trace, run:
 :CocCommand workspace.showOutput
 ```
 
-### Additiona options
+### jedi.diagnostics.enable
 
-See [here](https://github.com/pappasam/jedi-language-server#configuration) for configuration sections supported by the language server.
+Enables (or disables) diagnostics provided by Jedi
+
+- type: `boolean`
+- default: `true`
+
+### jedi.diagnostics.didOpen
+
+When diagnostics are enabled, run on document open
+
+- type: `boolean`
+- default: `true`
+
+### jedi.diagnostics.didChange
+
+When diagnostics are enabled, run on in-memory document change (eg, while you're editing, without needing to save to disk)
+
+- type: `boolean`
+- default: `true`
+
+### jedi.diagnostics.didSave
+
+When diagnostics are enabled, run on document save (to disk)
+
+- type: `boolean`
+- default: `true`
 
 ## Debugging
 

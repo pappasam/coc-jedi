@@ -8,6 +8,11 @@ import {
 } from 'coc.nvim'
 
 export async function activate(context: ExtensionContext): Promise<void> {
+  const config = workspace.getConfiguration('jedi')
+  const isEnable = config.get<boolean>('enable', true)
+  if (!isEnable) {
+    return
+  }
   const serverOptions: ServerOptions = {
     command: 'jedi-language-server',
   }
@@ -22,15 +27,13 @@ export async function activate(context: ExtensionContext): Promise<void> {
   )
   context.subscriptions.push(
     services.registLanguageClient(client),
-    workspace.onDidChangeConfiguration(async (e) => {
-      // restart server if 'jedi.*' configuration changes
-      if (e.affectsConfiguration('jedi')) {
+    workspace.onDidChangeConfiguration(async (edit) => {
+      if (edit.affectsConfiguration('jedi')) {
         await client.stop()
         client.restart()
       }
     })
   )
-
   client.onReady().then(() => {
     workspace.showMessage('jedi-language-server: started')
   })

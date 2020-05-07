@@ -36,7 +36,29 @@ I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager),
 
 ## Configuration
 
-See [here](https://github.com/pappasam/jedi-language-server#configuration)
+### jedi.enabled
+
+Enable (or disable) jedi-language-server.
+
+- type: `boolean`
+- default: `true`
+
+### jedi.trace.server
+
+Trace level of jedi-language-server. See [here](https://github.com/neoclide/coc.nvim/wiki/Debug-language-server#using-output-channel) for a coc-specific explanation.
+
+- type: `enum["off", "messages", "verbose"]`
+- default: `"verbose"`
+
+To see trace, run:
+
+```vim
+:CocCommand workspace.showOutput
+```
+
+### Additiona options
+
+See [here](https://github.com/pappasam/jedi-language-server#configuration) for configuration sections supported by the language server.
 
 ## Debugging
 

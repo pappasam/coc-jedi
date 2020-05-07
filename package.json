@@ -1,6 +1,6 @@
 {
   "name": "coc-jedi",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
   "license": "MIT",
@@ -40,6 +40,21 @@
       "type": "object",
       "title": "coc-jedi configuration",
       "properties": {
+        "jedi.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable jedi-language-server. Changes require restart"
+        },
+        "jedi.trace.server": {
+          "type": "string",
+          "default": "off",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "description": "Trace level of jedi-language-server"
+        },
         "jedi.diagnostics.enabled": {
           "type": "boolean",
           "default": true,

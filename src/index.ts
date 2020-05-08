@@ -1,11 +1,15 @@
+/**
+ * Main entrypoint for the Language Client
+ */
 import {
-  ServerOptions,
   LanguageClientOptions,
   ExtensionContext,
   services,
   workspace,
   LanguageClient,
 } from 'coc.nvim'
+import getJlsExecutable from './jlsExecutable'
+import { DEFAULT_JLS_NAME } from './constants'
 
 export async function activate(context: ExtensionContext): Promise<void> {
   const config = workspace.getConfiguration('jedi')
@@ -13,16 +17,14 @@ export async function activate(context: ExtensionContext): Promise<void> {
   if (!isEnable) {
     return
   }
-  const serverOptions: ServerOptions = {
-    command: 'jedi-language-server',
-  }
+  const serverOptions = await getJlsExecutable(config)
   const clientOptions: LanguageClientOptions = {
     documentSelector: ['python'],
     initializationOptions: config,
   }
   const client = new LanguageClient(
     'jedi',
-    'jedi-language-server',
+    DEFAULT_JLS_NAME,
     serverOptions,
     clientOptions
   )
@@ -36,6 +38,13 @@ export async function activate(context: ExtensionContext): Promise<void> {
     })
   )
   client.onReady().then(() => {
-    workspace.showMessage('jedi-language-server: started')
+    if (!config.get<boolean>('startupMessage', true)) {
+      return
+    }
+    const executable = serverOptions.command
+    const args = serverOptions.args
+    const cmd =
+      args.length === 0 ? executable : `${executable} ${args.join(' ')}`
+    workspace.showMessage(`jedi: running "${cmd}"`)
   })
 }

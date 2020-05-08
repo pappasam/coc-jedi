@@ -1,6 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.5.0",
+  "version": "0.6.0",
+  "jlsName": "jedi-language-server",
+  "jlsVersion": "0.13.1",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
   "license": "MIT",
@@ -45,6 +47,11 @@
           "default": true,
           "description": "Enable/disable jedi-language-server. Changes require restart"
         },
+        "jedi.startupMessage": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable jedi-language-server's message on startup"
+        },
         "jedi.trace.server": {
           "type": "string",
           "default": "off",
@@ -54,6 +61,16 @@
             "verbose"
           ],
           "description": "Trace level of jedi-language-server"
+        },
+        "jedi.executable.command": {
+          "type": "string | null",
+          "default": null,
+          "description": "The jedi-language-server executable. Coc-managed defaults if not specified"
+        },
+        "jedi.executable.args": {
+          "type": "string[]",
+          "default": [],
+          "description": "Args passed to jedi-language-server executable. Ignored if command is null"
         },
         "jedi.diagnostics.enable": {
           "type": "boolean",
@@ -78,5 +95,7 @@
       }
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "which": "^2.0.2"
+  }
 }

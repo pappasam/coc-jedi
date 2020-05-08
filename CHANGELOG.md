@@ -8,6 +8,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+- Manage specific jedi-language-server by relying on pipx. Otherwise, consider user configuration and path configuration to determine location of Python executable
+- Improve startupMessage to help people debug their setup if they experience issues
+- jedi-language-server version is now in package.json
+- jedi-language-server name is not in package.json
+- Configuration options:
+  - `jedi.executable.command`: jedi-language-server executable. Coc-managed defaults if not specified
+  - `jedi.executable.args`: args passed to jedi-language-server executable. Ignored if command is null
+  - `jedi.startupMessage`: enables (or disables the startup message)
+
+## 0.5.0
+
+### Added
+
 - Documentation for all config options here
 
 ### Changed

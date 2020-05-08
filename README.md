@@ -9,7 +9,13 @@
 
 ## Install
 
-First, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) on your system using [pipx](https://github.com/pipxproject/pipx).
+### (recommended) automatic Python package installation
+
+If you have [pipx](https://github.com/pipxproject/pipx) installed on your system and accessible within your path, coc-jedi will automatically download and manage `jedi-language-server` for you. There's not need to do anything more regarding Python package installation.
+
+### (not recommended) manual Python package installation
+
+Otherwise, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) on your system using [pipx](https://github.com/pipxproject/pipx). Make sure pipx is configured properly with your shell.
 
 ```bash
 pipx install jedi-language-server
@@ -24,7 +30,7 @@ Next, install in Vim / NeoVim with 1 of the following techniques:
 
 `:CocInstall coc-jedi`
 
-### Package Manager
+### Vim Package Manager
 
 If using [vim-plug](https://github.com/junegunn/vim-plug):
 
@@ -41,7 +47,10 @@ jedi-language-server supports top-level configuration items in `coc-settings.jso
 ```json
 {
   "jedi.enable": true,
+  "jedi.startupMessage": true,
   "jedi.trace.server": true,
+  "jedi.executable.command": null,
+  "jedi.executable.args": [],
   "jedi.diagnostics.enable": true,
   "jedi.diagnostics.didOpen": true,
   "jedi.diagnostics.didChange": true,
@@ -52,6 +61,13 @@ jedi-language-server supports top-level configuration items in `coc-settings.jso
 ### jedi.enable
 
 Enable (or disable) jedi-language-server.
+
+- type: `boolean`
+- default: `true`
+
+### jedi.startupMessage
+
+Enable/disable jedi-language-server's message on startup.
 
 - type: `boolean`
 - default: `true`
@@ -68,6 +84,27 @@ To see trace, run:
 ```vim
 :CocCommand workspace.showOutput
 ```
+
+### jedi.executable.command
+
+Specify your jedi-language-server executable. This is the command name / path used to run jedi-language-server on your machine.
+
+- type: `string | null`
+- default: `null`
+
+If you do not specify this, jedi-language-server will do the following:
+
+1. Find the first `jedi-language-server` found in your path and use that with no additional args
+2. If no `jedi-language-server` found in path, use `pipx` to download and run a specific jedi-language-server version (configured in this repository's `package.json` as `jlsVersion`).
+
+### jedi.executable.args
+
+Specify the args passed to your executable. This a list of arguments passed to the jedi executable command.
+
+- type: `string[]`
+- default: `[]`
+
+This option is only relevant if you also specify `jedi.executable.command`. Otherwise it is ignored.
 
 ### jedi.diagnostics.enable
 

@@ -36,10 +36,10 @@ function getJlsExecutableDefault(): JlsExecutable {
 export default function getJlsExecutable(
   config: WorkspaceConfiguration
 ): JlsExecutable {
-  const command = config.get<string>('jedi.executable.command')
+  const command = config.get<string>('executable.command')
   if (!command) {
     return getJlsExecutableDefault()
   }
-  const args = config.get<string[]>('jedi.executable.args', [])
+  const args = config.get<string[]>('executable.args', [])
   return { command, args }
 }

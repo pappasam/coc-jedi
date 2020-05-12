@@ -9,7 +9,7 @@ import {
   LanguageClient,
 } from 'coc.nvim'
 import getJlsExecutable from './jlsExecutable'
-import { DEFAULT_JLS_NAME } from './constants'
+import { JLS_NAME } from './constants'
 
 export async function activate(context: ExtensionContext): Promise<void> {
   const config = workspace.getConfiguration('jedi')
@@ -17,14 +17,14 @@ export async function activate(context: ExtensionContext): Promise<void> {
   if (!isEnable) {
     return
   }
-  const serverOptions = await getJlsExecutable(config)
+  const serverOptions = getJlsExecutable(config)
   const clientOptions: LanguageClientOptions = {
     documentSelector: ['python'],
     initializationOptions: config,
   }
   const client = new LanguageClient(
     'jedi',
-    DEFAULT_JLS_NAME,
+    JLS_NAME,
     serverOptions,
     clientOptions
   )

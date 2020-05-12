@@ -1,8 +1,9 @@
 {
   "name": "coc-jedi",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "jlsName": "jedi-language-server",
   "jlsVersion": "0.13.1",
+  "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
   "license": "MIT",
@@ -21,7 +22,8 @@
     "clean": "rimraf lib",
     "watch": "webpack --watch",
     "build": "webpack",
-    "prepare": "npm-run-all clean build"
+    "prepare": "npm-run-all clean build",
+    "postinstall": "node scripts/jedi-language-server-install.js"
   },
   "devDependencies": {
     "@types/node": "^13.13.1",
@@ -95,7 +97,5 @@
       }
     }
   },
-  "dependencies": {
-    "which": "^2.0.2"
-  }
+  "dependencies": {}
 }

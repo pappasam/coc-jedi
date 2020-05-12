@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.7.0
+
+### Added
+
+- Now automatically installs `jedi-language-server` in managed virtual environment for non-Windows environments.
+
+### Removed
+
+- Reference to pipx for manual installation. That was a bandaid anyway.
+
 ## 0.6.0
 
 ### Added

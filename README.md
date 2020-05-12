@@ -11,11 +11,13 @@
 
 ### (recommended) automatic Python package installation
 
-If you have [pipx](https://github.com/pipxproject/pipx) installed on your system and accessible within your path, coc-jedi will automatically download and manage `jedi-language-server` for you. There's not need to do anything more regarding Python package installation.
+If you are using Mac/Linux, `jedi-language-server` will be automatially installed and managed in an isoated virtualenv for you. There's no need to do anything regarding Python package installation.
+
+This may not work if `python3` is not mapped to at least `python 3.6`.
 
 ### (not recommended) manual Python package installation
 
-Otherwise, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) on your system using [pipx](https://github.com/pipxproject/pipx). Make sure pipx is configured properly with your shell.
+If using Windows, or if you'd like more control over which `jedi-language-server` binary is used, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) on your system using either pip or [pipx](https://github.com/pipxproject/pipx). If using pipx, make sure it is configured properly with your shell.
 
 ```bash
 pipx install jedi-language-server
@@ -23,6 +25,8 @@ pipx install jedi-language-server
 # to upgrade
 pipx upgrade jedi-language-server
 ```
+
+If it's not available in your path as `jedi-language-server`, specify a path to your executable using `jedi.executable.command` and `jedi.executable.args`.
 
 Next, install in Vim / NeoVim with 1 of the following techniques:
 

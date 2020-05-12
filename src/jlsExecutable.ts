@@ -2,49 +2,26 @@
  * Helper functions to obtain the Python executable for jedi-language-server
  */
 
-import which from 'which'
 import { Executable, WorkspaceConfiguration } from 'coc.nvim'
-import { DEFAULT_JLS_NAME, DEFAULT_JLS_VERSION } from './constants'
+import { JLS_NAME, JLS_VENV } from './constants'
+import path from 'path'
 
 interface JlsExecutable extends Executable {
   command: string
   args: string[]
 }
 
-/*
- * Helper function to obtain a full executable path from a user's system based
- * on a string value that may be in the user's path
- */
-async function executablePath(pathName: string): Promise<string | null> {
-  try {
-    return await which(pathName)
-  } catch (error) {
-    return null
-  }
-}
-
-async function getJlsExecutableDefault(): Promise<JlsExecutable> {
-  const jls = await executablePath(DEFAULT_JLS_NAME)
-  if (jls) {
+function getJlsExecutableDefault(): JlsExecutable {
+  if (process.platform === 'win32') {
     return {
-      command: jls,
+      command: JLS_NAME,
       args: [],
     }
   }
-  const pipx = await executablePath('pipx')
-  if (pipx) {
-    return {
-      command: pipx,
-      args: [
-        'run',
-        '--spec',
-        `${DEFAULT_JLS_NAME}==${DEFAULT_JLS_VERSION}`,
-        DEFAULT_JLS_NAME,
-      ],
-    }
-  }
+  const path_venv = path.join(path.dirname(__dirname), JLS_VENV)
+  const path_jls = path.join(path_venv, 'bin', JLS_NAME)
   return {
-    command: DEFAULT_JLS_NAME,
+    command: path_jls,
     args: [],
   }
 }
@@ -56,12 +33,12 @@ async function getJlsExecutableDefault(): Promise<JlsExecutable> {
  * 2. binaries currently in the path
  * 3. defaults provided in ./constants.ts
  */
-export default async function getJlsExecutable(
+export default function getJlsExecutable(
   config: WorkspaceConfiguration
-): Promise<JlsExecutable> {
+): JlsExecutable {
   const command = config.get<string>('jedi.executable.command')
   if (!command) {
-    return await getJlsExecutableDefault()
+    return getJlsExecutableDefault()
   }
   const args = config.get<string[]>('jedi.executable.args', [])
   return { command, args }

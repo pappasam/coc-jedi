@@ -4,6 +4,7 @@
 
 # this project
 lib/
+.venv/
 
 # Logs
 logs

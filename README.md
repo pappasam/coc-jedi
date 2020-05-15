@@ -5,6 +5,12 @@
 
 [coc.nvim](https://github.com/neoclide/coc.nvim) wrapper for Python's [jedi-language-server](https://github.com/pappasam/jedi-language-server).
 
+## System requirements
+
+- [nodejs](https://nodejs.org/en/) 8.10.0+
+- [python](https://www.python.org/) 3.6+
+- [yarn](https://github.com/yarnpkg/yarn) (recommended)
+
 **Note:** this extension is incompatible with [coc-python](https://github.com/neoclide/coc-python). Uninstall coc-python before using coc-jedi.
 
 ## Install
@@ -138,12 +144,50 @@ When diagnostics are enabled, run on document save (to disk)
 - type: `boolean`
 - default: `true`
 
-## Debugging
+## Additional Diagnostics
 
-If something isn't working for some reason, try upgrading `jedi-language-server` to the latest version.
+jedi-langugage-server provides diagnostics about syntax errors, powered by Jedi. If you would like additional diagnostics, we suggest using the powerful [diagnostic-language-server](https://github.com/iamcco/diagnostic-languageserver).
 
-```bash
-pipx upgrade jedi-language-server
+If using Neovim/coc, this can easily be done with [coc-diagnostic](https://github.com/iamcco/coc-diagnostic). Configure with [pylint](https://github.com/PyCQA/pylint) in your `coc-settings.json`:
+
+```json
+"diagnostic-languageserver.filetypes": {
+  "python": "pylint"
+},
+"diagnostic-languageserver.linters": {
+  "pylint": {
+    "sourceName": "pylint",
+    "command": "pylint",
+    "args": [
+      "--output-format",
+      "text",
+      "--score",
+      "no",
+      "--msg-template",
+      "'{line}:{column}:{category}:{msg} ({msg_id}:{symbol})'",
+      "%file"
+    ],
+    "formatPattern": [
+      "^(\\d+?):(\\d+?):([a-z]+?):(.*)$",
+      {
+        "line": 1,
+        "column": 2,
+        "security": 3,
+        "message": 4
+      }
+    ],
+    "securities": {
+      "informational": "hint",
+      "refactor": "info",
+      "convention": "info",
+      "warning": "warning",
+      "error": "error",
+      "fatal": "error"
+    },
+    "offsetColumn": 1,
+    "formatLines": 1
+  }
+}
 ```
 
 ## License

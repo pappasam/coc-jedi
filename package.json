@@ -1,6 +1,6 @@
 {
   "name": "coc-jedi",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "jlsName": "jedi-language-server",
   "jlsVersion": "0.13.2",
   "jlsVenv": ".venv",

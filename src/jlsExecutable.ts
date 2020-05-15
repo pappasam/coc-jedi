@@ -5,7 +5,7 @@
 import { Executable, WorkspaceConfiguration, workspace } from 'coc.nvim'
 import { JLS_NAME, JLS_VERSION, JLS_VENV } from './constants'
 import { execSync } from 'child_process'
-import fs from 'fs'
+import rimraf from 'rimraf'
 import path from 'path'
 
 interface JlsExecutable extends Executable {
@@ -14,27 +14,27 @@ interface JlsExecutable extends Executable {
 }
 
 function createJlsVenvUnix(): string {
-  const path_venv = path.join(path.dirname(__dirname), JLS_VENV)
-  const path_jls = path.join(path_venv, 'bin', JLS_NAME)
+  const pathVenv = path.join(path.dirname(__dirname), JLS_VENV)
+  const pathJls = path.join(pathVenv, 'bin', JLS_NAME)
   let badVenv = false
   try {
     // basic check to see if executable raises any errors. This tells us that
     // either the virtual environment is corrupted or that there is no
     // executable.
-    execSync(`${path_jls} --version`)
+    execSync(`${pathJls} --version`)
   } catch (error) {
     badVenv = true
   }
   if (badVenv) {
-    fs.rmdirSync(path_venv, { recursive: true })
+    rimraf.sync(pathVenv) // rm -rf
     workspace.showMessage(
-      `jedi: installing ${JLS_NAME}==${JLS_VERSION} in "${path_venv}"`
+      `jedi: installing ${JLS_NAME}==${JLS_VERSION} in "${pathVenv}"`
     )
-    const path_pip = path.join(path_venv, 'bin', 'pip')
+    const pathPip = path.join(pathVenv, 'bin', 'pip')
     try {
       execSync(
-        `python3 -m venv ${path_venv} && ` +
-          `${path_pip} install -U ${JLS_NAME}==${JLS_VERSION}`
+        `python3 -m venv ${pathVenv} && ` +
+          `${pathPip} install -U ${JLS_NAME}==${JLS_VERSION}`
       )
       workspace.showMessage(`jedi: installed ${JLS_NAME}==${JLS_VERSION}`)
     } catch (error) {
@@ -42,7 +42,7 @@ function createJlsVenvUnix(): string {
       return JLS_NAME
     }
   }
-  return path_jls
+  return pathJls
 }
 
 function getJlsExecutableDefault(): JlsExecutable {

@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.9.1
+
+### Changed
+
+- Obtain the current jls version when obtaining the default jls environment. If the current version is not equal to the expected version, re-install. This should make updates seamless for people who are "git pulling" the latest changes and may not be deleting an existing venv.
+
 ## 0.9.0
 
 ### Changed

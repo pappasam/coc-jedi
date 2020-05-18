@@ -13,19 +13,29 @@ interface JlsExecutable extends Executable {
   args: string[]
 }
 
-function createJlsVenvUnix(): string {
+// Get the venv-installed jedi-language-server version. execSync may raise an
+// error, which tells us the virtual environment is corrupted or that there is
+// no executable.
+//
+// Assuming version 0.14.0: jedi-language-server --version
+// 'jedi-language-server, version 0.14.0\n'
+function getJlsVersionPosix(jlsPath: string): string | undefined {
+  const stdout = execSync(`${jlsPath} --version`)
+  return stdout.toString().trim().split(' ').pop()
+}
+
+function createJlsVenvPosix(): string {
   const pathVenv = path.join(path.dirname(__dirname), JLS_VENV)
   const pathJls = path.join(pathVenv, 'bin', JLS_NAME)
   let badVenv = false
+  let badVersion = true
   try {
-    // basic check to see if executable raises any errors. This tells us that
-    // either the virtual environment is corrupted or that there is no
-    // executable.
-    execSync(`${pathJls} --version`)
+    const version = getJlsVersionPosix(pathJls)
+    badVersion = (version !== JLS_VERSION)
   } catch (error) {
     badVenv = true
   }
-  if (badVenv) {
+  if (badVenv || badVersion) {
     rimraf.sync(pathVenv) // rm -rf
     workspace.showMessage(
       `jedi: installing ${JLS_NAME}==${JLS_VERSION} in "${pathVenv}"`
@@ -52,7 +62,7 @@ function getJlsExecutableDefault(): JlsExecutable {
       args: [],
     }
   }
-  const path_jls = createJlsVenvUnix()
+  const path_jls = createJlsVenvPosix()
   return {
     command: path_jls,
     args: [],

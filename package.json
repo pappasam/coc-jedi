@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.14.0",
+  "jlsVersion": "0.15.0",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -56,6 +56,15 @@
           "type": "boolean",
           "default": true,
           "description": "Enable/disable jedi-language-server's message on startup"
+        },
+        "jedi.markupKindPreferred": {
+          "type": "string | null",
+          "default": null,
+          "enum": [
+            "markdown",
+            "plaintext"
+          ],
+          "description": "The preferred MarkupKind for jedi-language-server messages."
         },
         "jedi.trace.server": {
           "type": "string",

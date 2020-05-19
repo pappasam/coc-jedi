@@ -58,6 +58,7 @@ jedi-language-server supports top-level configuration items in `coc-settings.jso
 {
   "jedi.enable": true,
   "jedi.startupMessage": true,
+  "jedi.markupKindPreferred": null,
   "jedi.trace.server": true,
   "jedi.executable.command": null,
   "jedi.executable.args": [],
@@ -81,6 +82,15 @@ Enable/disable jedi-language-server's message on startup.
 
 - type: `boolean`
 - default: `true`
+
+### jedi.markupKindPreferred
+
+The preferred MarkupKind for all jedi-language-server messages that take [MarkupContent](https://microsoft.github.io/language-server-protocol/specification#markupContent).
+
+- type: `enum["markdown", "plaintext"] | null`
+- default: `null`
+
+If `null`, jedi-language-server defaults to the client-preferred configuration. If there is no client-preferred configuration, jedi language server users `plaintext`.
 
 ### jedi.trace.server
 

@@ -1,46 +1,22 @@
 # coc-jedi
 
-[![image-version](https://img.shields.io/npm/v/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
-[![image-license](https://img.shields.io/npm/l/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
+[![image-npm-version](https://img.shields.io/npm/v/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
+[![image-pypi-version](https://img.shields.io/pypi/v/jedi-language-server.svg)](https://python.org/pypi/jedi-language-server)
+[![image-npm-license](https://img.shields.io/npm/l/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
+[![image-node-versions](https://img.shields.io/node/v/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
+[![image-python-versions](https://img.shields.io/pypi/pyversions/jedi-language-server.svg)](https://python.org/pypi/jedi-language-server)
 
 [coc.nvim](https://github.com/neoclide/coc.nvim) wrapper for Python's [jedi-language-server](https://github.com/pappasam/jedi-language-server).
 
-## System requirements
-
-- [nodejs](https://nodejs.org/en/) 8.10.0+
-- [python](https://www.python.org/) 3.6+
-- [yarn](https://github.com/yarnpkg/yarn) (recommended)
-
-**Note:** this extension is incompatible with [coc-python](https://github.com/neoclide/coc-python). Uninstall coc-python before using coc-jedi.
-
 ## Install
 
-### (recommended) automatic Python package installation
+Next, install in NeoVim / Vim with one of the following techniques:
 
-If you are using Mac/Linux, `jedi-language-server` will be automatially installed and managed in an isoated virtualenv for you. There's no need to do anything regarding Python package installation.
-
-This may not work if `python3` is not mapped to at least `python 3.6`.
-
-### (not recommended) manual Python package installation
-
-If using Windows, or if you'd like more control over which `jedi-language-server` binary is used, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) on your system using either pip or [pipx](https://github.com/pipxproject/pipx). If using pipx, make sure it is configured properly with your shell.
-
-```bash
-pipx install jedi-language-server
-
-# to upgrade
-pipx upgrade jedi-language-server
-```
-
-If it's not available in your path as `jedi-language-server`, specify a path to your executable using `jedi.executable.command` and `jedi.executable.args`.
-
-Next, install in Vim / NeoVim with 1 of the following techniques:
-
-### CocInstall
+### 1. CocInstall
 
 `:CocInstall coc-jedi`
 
-### Vim Package Manager
+### 2. Vim Package Manager
 
 If using [vim-plug](https://github.com/junegunn/vim-plug):
 
@@ -49,6 +25,8 @@ Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build'
 ```
 
 I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager), so if you'd like to go down the [package rabbit hole](https://shapeshed.com/vim-packages/), I suggest giving that a try.
+
+**Note:** this extension is incompatible with [coc-python](https://github.com/neoclide/coc-python). Uninstall coc-python before using coc-jedi.
 
 ## Configuration
 
@@ -186,6 +164,7 @@ If using Neovim/coc, this can easily be done with [coc-diagnostic](https://githu
         "message": 4
       }
     ],
+    "rootPatterns": [".git", "pyproject.toml", "setup.py"],
     "securities": {
       "informational": "hint",
       "refactor": "info",

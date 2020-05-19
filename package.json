@@ -1,6 +1,6 @@
 {
   "name": "coc-jedi",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "jlsName": "jedi-language-server",
   "jlsVersion": "0.15.0",
   "jlsVenv": ".venv",
@@ -20,7 +20,8 @@
     "neovim"
   ],
   "engines": {
-    "coc": "^0.0.70"
+    "coc": "^0.0.70",
+    "node": ">=8.10.0"
   },
   "scripts": {
     "clean": "rimraf lib",

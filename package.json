@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.15.1",
+  "jlsVersion": "0.16.0",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -86,6 +86,11 @@
           "type": "string[]",
           "default": [],
           "description": "Args passed to jedi-language-server executable. Ignored if command is null"
+        },
+        "jedi.completion.disableSnippets": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable (or disable) diagnostics provided by Jedi"
         },
         "jedi.diagnostics.enable": {
           "type": "boolean",

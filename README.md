@@ -40,6 +40,7 @@ jedi-language-server supports top-level configuration items in `coc-settings.jso
   "jedi.trace.server": true,
   "jedi.executable.command": null,
   "jedi.executable.args": [],
+  "jedi.completion.disableSnippets": false,
   "jedi.diagnostics.enable": true,
   "jedi.diagnostics.didOpen": true,
   "jedi.diagnostics.didChange": true,
@@ -103,6 +104,13 @@ Specify the args passed to your executable. This a list of arguments passed to t
 - default: `[]`
 
 This option is only relevant if you also specify `jedi.executable.command`. Otherwise it is ignored.
+
+### jedi.completion.disableSnippets
+
+If your language client supports `CompletionItem` snippets but you don't like them, disable them by setting this option to `true`.
+
+- type: `boolean`
+- default: `false`
 
 ### jedi.diagnostics.enable
 

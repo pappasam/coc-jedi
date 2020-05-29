@@ -30,16 +30,20 @@ I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager),
 
 ## Configuration
 
-jedi-language-server supports top-level configuration items in `coc-settings.json` (or your editor-equivalent configuration file). The following is a snippet of `coc-settings.json` with defaults:
+jedi-language-server supports top-level configuration items in `coc-settings.json` (or your editor-equivalent configuration file).
+
+**Note:** after jedi-language-server has started, changes to configurations mentioned below require restarting Vim / Neovim before they take effect.
+
+The following is a snippet of `coc-settings.json` with defaults or with acceptable values:
 
 ```json
 {
   "jedi.enable": true,
   "jedi.startupMessage": true,
-  "jedi.markupKindPreferred": null,
+  "jedi.markupKindPreferred": "plaintext",
   "jedi.trace.server": true,
   "jedi.jediSettings.autoImportModules": [],
-  "jedi.executable.command": null,
+  "jedi.executable.command": "jedi-language-server",
   "jedi.executable.args": [],
   "jedi.completion.disableSnippets": false,
   "jedi.diagnostics.enable": true,
@@ -67,16 +71,17 @@ Enable/disable jedi-language-server's message on startup.
 
 The preferred MarkupKind for all jedi-language-server messages that take [MarkupContent](https://microsoft.github.io/language-server-protocol/specification#markupContent).
 
-- type: `enum["markdown", "plaintext"] | null`
-- default: `null`
+- type: `string`
+- accepted values: `"markdown"`, `"plaintext"`
 
-If `null`, jedi-language-server defaults to the client-preferred configuration. If there is no client-preferred configuration, jedi language server users `plaintext`.
+If omitted, jedi-language-server defaults to the client-preferred configuration. If there is no client-preferred configuration, jedi language server users `"plaintext"`.
 
 ### jedi.trace.server
 
 Trace level of jedi-language-server. See [here](https://github.com/neoclide/coc.nvim/wiki/Debug-language-server#using-output-channel) for a coc-specific explanation.
 
-- type: `enum["off", "messages", "verbose"]`
+- type: `string`
+- accepted values: `"off"`, `"messages"`, `"verbose"`
 - default: `"verbose"`
 
 To see trace, run:
@@ -96,9 +101,7 @@ If you're noticing that modules like `numpy` and `pandas` are taking a super lon
 
 ```json
 {
-  ...
-  "jedi.jediSettings.autoImportModules": ["numpy", "pandas"],
-  ...
+  "jedi.jediSettings.autoImportModules": ["numpy", "pandas"]
 }
 ```
 
@@ -106,10 +109,9 @@ If you're noticing that modules like `numpy` and `pandas` are taking a super lon
 
 Specify your jedi-language-server executable. This is the command name / path used to run jedi-language-server on your machine.
 
-- type: `string | null`
-- default: `null`
+- type: `string`
 
-If you do not specify this, jedi-language-server will do the following:
+If omitted, jedi-language-server will do the following:
 
 1. Find the first `jedi-language-server` found in your path and use that with no additional args
 2. If no `jedi-language-server` found in path, use `pipx` to download and run a specific jedi-language-server version (configured in this repository's `package.json` as `jlsVersion`).

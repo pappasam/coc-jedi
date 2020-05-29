@@ -51,7 +51,7 @@
         "jedi.enable": {
           "type": "boolean",
           "default": true,
-          "description": "Enable/disable jedi-language-server. Changes require restart"
+          "description": "Enable/disable jedi-language-server."
         },
         "jedi.startupMessage": {
           "type": "boolean",
@@ -59,13 +59,12 @@
           "description": "Enable/disable jedi-language-server's message on startup"
         },
         "jedi.markupKindPreferred": {
-          "type": "string | null",
-          "default": null,
+          "type": "string",
           "enum": [
             "markdown",
             "plaintext"
           ],
-          "description": "The preferred MarkupKind for jedi-language-server messages."
+          "description": "The preferred MarkupKind for jedi-language-server messages. If omitted, defaults to client preferences"
         },
         "jedi.trace.server": {
           "type": "string",
@@ -83,9 +82,8 @@
           "description": "Modules that will not be analyzed but imported. Improves autocompletion but loses goto definition"
         },
         "jedi.executable.command": {
-          "type": "string | null",
-          "default": null,
-          "description": "The jedi-language-server executable. Coc-managed defaults if not specified"
+          "type": "string",
+          "description": "The jedi-language-server executable. If omitted, coc-managed default is used"
         },
         "jedi.executable.args": {
           "type": "string[]",

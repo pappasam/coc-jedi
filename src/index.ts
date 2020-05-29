@@ -28,15 +28,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     serverOptions,
     clientOptions
   )
-  context.subscriptions.push(
-    services.registLanguageClient(client),
-    workspace.onDidChangeConfiguration(async (edit) => {
-      if (edit.affectsConfiguration('jedi')) {
-        await client.stop()
-        client.restart()
-      }
-    })
-  )
+  context.subscriptions.push(services.registLanguageClient(client))
   client.onReady().then(() => {
     if (!config.get<boolean>('startupMessage', true)) {
       return

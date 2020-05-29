@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.17.0",
+  "jlsVersion": "0.17.1",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",

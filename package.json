@@ -2,7 +2,7 @@
   "name": "coc-jedi",
   "version": "0.11.0",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.16.0",
+  "jlsVersion": "0.17.0",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -76,6 +76,11 @@
             "verbose"
           ],
           "description": "Trace level of jedi-language-server"
+        },
+        "jedi.jediSettings.autoImportModules": {
+          "type": "string[]",
+          "default": [],
+          "description": "Modules that will not be analyzed but imported. Improves autocompletion but loses goto definition"
         },
         "jedi.executable.command": {
           "type": "string | null",

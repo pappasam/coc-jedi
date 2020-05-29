@@ -38,6 +38,7 @@ jedi-language-server supports top-level configuration items in `coc-settings.jso
   "jedi.startupMessage": true,
   "jedi.markupKindPreferred": null,
   "jedi.trace.server": true,
+  "jedi.jediSettings.autoImportModules": [],
   "jedi.executable.command": null,
   "jedi.executable.args": [],
   "jedi.completion.disableSnippets": false,
@@ -82,6 +83,23 @@ To see trace, run:
 
 ```vim
 :CocCommand workspace.showOutput
+```
+
+### jedi.jediSettings.autoImportModules
+
+Modules that will not be analyzed but imported. Improves autocompletion but loses goto definition.
+
+- type: `string[]`
+- default: `[]`
+
+If you're noticing that modules like `numpy` and `pandas` are taking a super long time to load and you prioritize completions / signatures over goto definition, I recommend using this option like this:
+
+```json
+{
+  ...
+  "jedi.jediSettings.autoImportModules": ["numpy", "pandas"],
+  ...
+}
 ```
 
 ### jedi.executable.command

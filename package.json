@@ -1,6 +1,6 @@
 {
   "name": "coc-jedi",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "jlsName": "jedi-language-server",
   "jlsVersion": "0.18.0",
   "jlsVenv": ".venv",
@@ -77,7 +77,10 @@
           "description": "Trace level of jedi-language-server"
         },
         "jedi.jediSettings.autoImportModules": {
-          "type": "string[]",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
           "default": [],
           "description": "Modules that will not be analyzed but imported. Improves autocompletion but loses goto definition"
         },
@@ -86,7 +89,10 @@
           "description": "The jedi-language-server executable. If omitted, coc-managed default is used"
         },
         "jedi.executable.args": {
-          "type": "string[]",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
           "default": [],
           "description": "Args passed to jedi-language-server executable. Ignored if command is null"
         },

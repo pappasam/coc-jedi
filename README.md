@@ -8,6 +8,8 @@
 
 [coc.nvim](https://github.com/neoclide/coc.nvim) wrapper for Python's [jedi-language-server](https://github.com/pappasam/jedi-language-server).
 
+If you would like to know more about why coc-jedi is useful, please read this [blog post](https://samroeca.com/coc-plugin.html#coc-plugin).
+
 ## Install
 
 Next, install in NeoVim / Vim with one of the following techniques:
@@ -30,7 +32,7 @@ I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager),
 
 ## Configuration
 
-jedi-language-server supports top-level configuration items in `coc-settings.json` (or your editor-equivalent configuration file).
+jedi-language-server supports top-level configuration items in `coc-settings.json` (or your editor-specific configuration file).
 
 **Note:** after jedi-language-server has started, changes to configurations mentioned below require restarting Vim / Neovim before they take effect.
 
@@ -92,12 +94,12 @@ To see trace, run:
 
 ### jedi.jediSettings.autoImportModules
 
-Modules that will not be analyzed but imported. Improves autocompletion but loses goto definition.
+Modules that jedi will directly import without analyzing. Improves autocompletion but loses goto definition.
 
 - type: `string[]`
 - default: `[]`
 
-If you're noticing that modules like `numpy` and `pandas` are taking a super long time to load and you prioritize completions / signatures over goto definition, I recommend using this option like this:
+If you're noticing that modules like `numpy` and `pandas` are taking a super long time to load and you value completions / signatures over goto definition, I recommend using this option like this:
 
 ```json
 {
@@ -113,7 +115,7 @@ Specify your jedi-language-server executable. This is the command name / path us
 
 If omitted, jedi-language-server will do the following:
 
-1. Find the first `jedi-language-server` found in your path and use that with no additional args
+1. Find the first `jedi-language-server` found in your path and use that with no args
 2. If no `jedi-language-server` found in path, use `pipx` to download and run a specific jedi-language-server version (configured in this repository's `package.json` as `jlsVersion`).
 
 ### jedi.executable.args

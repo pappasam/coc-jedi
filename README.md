@@ -209,6 +209,22 @@ If using Neovim/coc, this can easily be done with [coc-diagnostic](https://githu
 }
 ```
 
+## FAQ / Debugging
+
+### No completion / goto definition while using Conda, homebrew, asdf, etc
+
+If you haven't installed a dependency in a virtualenv and/or don't have a virtualenv active, Jedi may have trouble locating your dependencies. If you encounter issues with completion / anything else, install [jedi-language-server](https://github.com/pappasam/jedi-language-server) in your Python environment (system Python, conda, homebrew, etc) and update your `coc-settings.json` with the path to your `jedi-language-server` executable. Example:
+
+```json
+{
+  "jedi.executable.command": "/PATH/TO/JEDI/LANGUAGE/SERVER"
+}
+```
+
+*Note: replace `/PATH/TO/JEDI/LANGUAGE/SERVER` with your path. If `jedi-language-server` is in your home folder and your username is `potato` its path would probably be `/home/potato/jedi-language-server`.*
+
+If this does not resolve your issue, please create a GitHub issue describing your Python environment and problem.
+
 ## License
 
 MIT

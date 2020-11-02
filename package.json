@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.15.1",
+  "version": "0.16.0",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.20.1",
+  "jlsVersion": "0.21.0",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -120,6 +120,14 @@
           "type": "boolean",
           "default": true,
           "description": "Run diagnostics on document save (to disk)"
+        },
+        "jedi.workspace.extraPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Add additional paths for Jedi's analysis. Useful with vendor directories, packages in a non-standard location, etc."
         }
       }
     }

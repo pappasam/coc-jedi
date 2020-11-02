@@ -51,7 +51,8 @@ The following is a snippet of `coc-settings.json` with defaults or with acceptab
   "jedi.diagnostics.enable": true,
   "jedi.diagnostics.didOpen": true,
   "jedi.diagnostics.didChange": true,
-  "jedi.diagnostics.didSave": true
+  "jedi.diagnostics.didSave": true,
+  "jedi.workspace.extraPaths": []
 }
 ```
 
@@ -162,6 +163,35 @@ When diagnostics are enabled, run on document save (to disk)
 - type: `boolean`
 - default: `true`
 
+### jedi.workspace.extraPaths
+
+Add additional paths for Jedi's analysis. Useful with vendor directories, packages in a non-standard location, etc. You probably won't need to use this, but you'll be happy it's here when you need it!
+
+- type: `string[]`
+- default: `[]`
+
+Non-absolute paths are relative to your project root. For example, let's say your Python project is structured like this:
+
+```
+├── funky
+│   └── haha.py
+├── poetry.lock
+├── pyproject.toml
+├── test.py
+```
+
+Assume that `funky/haha.py` contains 1 line, `x = 12`, and your build system does some wizardry that makes `haha` importable just like `os` or `pathlib`. In this example, if you want to have this same non-standard behavior with `jedi-language-server`, put the following in your `coc-settings.json`:
+
+```json
+{
+  "jedi.workspace.extraPaths": ["funky"]
+}
+```
+
+When editing `test.py`, you'll get completions, goto definition, and all other lsp features for the line `from haha import ...`.
+
+Again, you probably don't needt this.
+
 ## Additional Diagnostics
 
 jedi-langugage-server provides diagnostics about syntax errors, powered by Jedi. If you would like additional diagnostics, we suggest using the powerful [diagnostic-language-server](https://github.com/iamcco/diagnostic-languageserver).
@@ -209,6 +239,30 @@ If using Neovim/coc, this can easily be done with [coc-diagnostic](https://githu
 }
 ```
 
+## Code Formatting
+
+You can also use diagnostic [diagnostic-language-server](https://github.com/iamcco/diagnostic-languageserver) for code formatting:
+
+```json
+"diagnostic-languageserver.formatFiletypes": {
+  "python": ["black", "isort", "docformatter"]
+},
+"diagnostic-languageserver.formatters": {
+  "black": {
+    "command": "black",
+    "args": ["black", "-q", "-"]
+  },
+  "isort": {
+    "command": "isort",
+    "args": ["-q", "-"]
+  },
+  "docformatter": {
+    "command": "docformatter",
+    "args": ["-"]
+  }
+}
+```
+
 ## FAQ / Debugging
 
 ### No completion / goto definition while using Conda, homebrew, asdf, etc
@@ -221,7 +275,7 @@ If you haven't installed a dependency in a virtualenv and/or don't have a virtua
 }
 ```
 
-*Note: replace `/PATH/TO/JEDI/LANGUAGE/SERVER` with your path. If `jedi-language-server` is in your home folder and your username is `potato` its path would probably be `/home/potato/jedi-language-server`.*
+_Note: replace `/PATH/TO/JEDI/LANGUAGE/SERVER` with your path. If `jedi-language-server` is in your home folder and your username is `potato` its path would probably be `/home/potato/jedi-language-server`._
 
 If this does not resolve your issue, please create a GitHub issue describing your Python environment and problem.
 

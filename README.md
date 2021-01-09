@@ -250,7 +250,7 @@ You can also use diagnostic [diagnostic-language-server](https://github.com/iamc
 "diagnostic-languageserver.formatters": {
   "black": {
     "command": "black",
-    "args": ["black", "-q", "-"]
+    "args": ["-q", "-"]
   },
   "isort": {
     "command": "isort",

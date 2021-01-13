@@ -41,7 +41,7 @@ The following is a snippet of `coc-settings.json` with defaults or with acceptab
 ```json
 {
   "jedi.enable": true,
-  "jedi.startupMessage": true,
+  "jedi.startupMessage": false,
   "jedi.markupKindPreferred": "plaintext",
   "jedi.trace.server": true,
   "jedi.jediSettings.autoImportModules": [],
@@ -114,10 +114,10 @@ Specify your jedi-language-server executable. This is the command name / path us
 
 - type: `string`
 
-If omitted, jedi-language-server will do the following:
+If this argument is not provided, `coc-jedi` will do the following:
 
-1. Find the first `jedi-language-server` found in your path and use that with no args
-2. If no `jedi-language-server` found in path, use `pipx` to download and run a specific jedi-language-server version (configured in this repository's `package.json` as `jlsVersion`).
+- For most platforms, `coc-jedi` will use a `coc-jedi`-managed `jedi-language-server` executable. If no such executable is found, `coc-jedi` will try to automatically install the executable for you in a virtual environment within the `coc-jedi` path.
+- For Windows, `coc-jedi` will try execute the command `jedi-language-server`. TODO: support Windows in the same way we support other platforms.
 
 ### jedi.executable.args
 

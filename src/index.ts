@@ -30,7 +30,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   )
   context.subscriptions.push(services.registLanguageClient(client))
   client.onReady().then(() => {
-    if (!config.get<boolean>('startupMessage', true)) {
+    if (!config.get<boolean>('startupMessage', false)) {
       return
     }
     const executable = serverOptions.command

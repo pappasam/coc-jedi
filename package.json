@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.21.0",
+  "jlsVersion": "0.22.0",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -55,7 +55,7 @@
         },
         "jedi.startupMessage": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Enable/disable jedi-language-server's message on startup"
         },
         "jedi.markupKindPreferred": {

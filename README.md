@@ -43,7 +43,7 @@ The following is a snippet of `coc-settings.json` with defaults or with acceptab
   "jedi.enable": true,
   "jedi.startupMessage": false,
   "jedi.markupKindPreferred": "plaintext",
-  "jedi.trace.server": true,
+  "jedi.trace.server": "verbose",
   "jedi.jediSettings.autoImportModules": [],
   "jedi.executable.command": "jedi-language-server",
   "jedi.executable.args": [],

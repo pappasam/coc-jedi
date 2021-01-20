@@ -43,7 +43,7 @@ The following is a snippet of `coc-settings.json` with defaults or with acceptab
   "jedi.enable": true,
   "jedi.startupMessage": false,
   "jedi.markupKindPreferred": "plaintext",
-  "jedi.trace.server": "verbose",
+  "jedi.trace.server": "off",
   "jedi.jediSettings.autoImportModules": [],
   "jedi.executable.command": "jedi-language-server",
   "jedi.executable.args": [],
@@ -85,7 +85,7 @@ Trace level of jedi-language-server. See [here](https://github.com/neoclide/coc.
 
 - type: `string`
 - accepted values: `"off"`, `"messages"`, `"verbose"`
-- default: `"verbose"`
+- default: `"off"`
 
 To see trace, run:
 

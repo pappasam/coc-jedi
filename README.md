@@ -48,6 +48,7 @@ The following is a snippet of `coc-settings.json` with defaults or with acceptab
   "jedi.executable.command": "jedi-language-server",
   "jedi.executable.args": [],
   "jedi.completion.disableSnippets": false,
+  "jedi.completion.resolveEagerly": false,
   "jedi.diagnostics.enable": true,
   "jedi.diagnostics.didOpen": true,
   "jedi.diagnostics.didChange": true,
@@ -131,6 +132,13 @@ This option is only relevant if you also specify `jedi.executable.command`. Othe
 ### jedi.completion.disableSnippets
 
 If your language client supports `CompletionItem` snippets but you don't like them, disable them by setting this option to `true`.
+
+- type: `boolean`
+- default: `false`
+
+### jedi.completion.resolveEagerly
+
+Return all completion results in initial completion request. Set to `true` if your language client does not support `completionItem/resolve`.
 
 - type: `boolean`
 - default: `false`

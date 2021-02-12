@@ -109,6 +109,19 @@ If you're noticing that modules like `numpy` and `pandas` are taking a super lon
 }
 ```
 
+### jedi.jediSettings.caseInsensitiveCompletion
+
+Completions are by default case insensitive. Set to `false` to make completions case sensitive.
+
+- type: `boolean`
+- default: `false`
+
+```json
+{
+  "jedi.jediSettings.caseInsensitiveCompletion": false
+}
+```
+
 ### jedi.executable.command
 
 Specify your jedi-language-server executable. This is the command name / path used to run jedi-language-server on your machine.

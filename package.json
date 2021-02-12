@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.18.1",
+  "version": "0.19.0",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.23.1",
+  "jlsVersion": "0.24.0",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -83,6 +83,11 @@
           },
           "default": [],
           "description": "Modules that will not be analyzed but imported. Improves autocompletion but loses goto definition"
+        },
+        "jedi.jediSettings.caseInsensitiveCompletion": {
+          "type": "boolean",
+          "default": true,
+          "description": "Completions are by default case insensitive."
         },
         "jedi.executable.command": {
           "type": "string",

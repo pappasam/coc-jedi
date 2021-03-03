@@ -55,7 +55,8 @@ The following is a snippet of `coc-settings.json` with defaults or with acceptab
   "jedi.diagnostics.didChange": true,
   "jedi.diagnostics.didSave": true,
   "jedi.workspace.extraPaths": [],
-  "jedi.workspace.maxSymbols": 20
+  "jedi.workspace.symbols.maxSymbols": 20
+  "jedi.workspace.symbols.ignoreFolders": [".nox", ".tox", ".venv", "__pycache__", "venv"]
 }
 ```
 
@@ -215,20 +216,35 @@ When editing `test.py`, you'll get completions, goto definition, and all other l
 
 Again, you probably don't need this.
 
-### jedi.workspace.maxSymbols
+### jedi.workspace.symbols.maxSymbols
 
-Maximum number of symbols returned by a call to `workspace/symbols`.
+Performance optimization that sets names of folders that are ignored for `workspace/symbols`.
 
 - type: `number`
 - default: 20
 
 ```json
 {
-  "jedi.workspace.maxSymbols": 20
+  "jedi.workspace.symbols.maxSymbols": 20
 }
 ```
 
 A value less than or equal to zero removes the maximum and allows jedi-language-server to return all workplace symbols found by jedi.
+
+### jedi.workspace.symbols.ignoreFolders
+
+Maximum number of symbols returned by a call to `workspace/symbols`.
+
+- type: `string[]`
+- default: `[".nox", ".tox", ".venv", "__pycache__", "venv"]`
+
+```json
+{
+  "jedi.workspace.symbols.ignoreFolders": ["hello", "world"]
+}
+```
+
+If you manually set this option, it overrides the default. Setting it to an empty array will result in no ignored folders.
 
 ## Additional Diagnostics
 

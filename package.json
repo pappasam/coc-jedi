@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.20.8",
+  "version": "0.21.0",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.25.7",
+  "jlsVersion": "0.26.0",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -138,6 +138,11 @@
           },
           "default": [],
           "description": "Add additional paths for Jedi's analysis. Useful with vendor directories, packages in a non-standard location, etc."
+        },
+        "jedi.workspace.maxSymbols": {
+          "type": "number",
+          "default": 20,
+          "description": "Maximum number of symbols returned by a call to `workspace/symbols`"
         }
       }
     }

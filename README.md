@@ -54,7 +54,8 @@ The following is a snippet of `coc-settings.json` with defaults or with acceptab
   "jedi.diagnostics.didOpen": true,
   "jedi.diagnostics.didChange": true,
   "jedi.diagnostics.didSave": true,
-  "jedi.workspace.extraPaths": []
+  "jedi.workspace.extraPaths": [],
+  "jedi.workspace.maxSymbols": 20
 }
 ```
 
@@ -212,7 +213,22 @@ Assume that `funky/haha.py` contains 1 line, `x = 12`, and your build system doe
 
 When editing `test.py`, you'll get completions, goto definition, and all other lsp features for the line `from haha import ...`.
 
-Again, you probably don't needt this.
+Again, you probably don't need this.
+
+### jedi.workspace.maxSymbols
+
+Maximum number of symbols returned by a call to `workspace/symbols`.
+
+- type: `number`
+- default: 20
+
+```json
+{
+  "jedi.workspace.maxSymbols": 20
+}
+```
+
+A value less than or equal to zero removes the maximum and allows jedi-language-server to return all workplace symbols found by jedi.
 
 ## Additional Diagnostics
 

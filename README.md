@@ -55,7 +55,7 @@ The following is a snippet of `coc-settings.json` with defaults or with acceptab
   "jedi.diagnostics.didChange": true,
   "jedi.diagnostics.didSave": true,
   "jedi.workspace.extraPaths": [],
-  "jedi.workspace.symbols.maxSymbols": 20
+  "jedi.workspace.symbols.maxSymbols": 20,
   "jedi.workspace.symbols.ignoreFolders": [".nox", ".tox", ".venv", "__pycache__", "venv"]
 }
 ```

@@ -11,9 +11,11 @@
 
 If you would like to know more about why coc-jedi is useful, please read this [blog post](https://samroeca.com/coc-plugin.html#coc-plugin).
 
-## Install
+Requires Python version>=3.6.1.
 
-Next, install in NeoVim / Vim with one of the following techniques:
+## Installation
+
+Install in NeoVim / Vim with one of the following techniques:
 
 ### 1. CocInstall
 
@@ -33,11 +35,11 @@ I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager),
 
 ## Configuration
 
-jedi-language-server supports top-level configuration items in `coc-settings.json` (or your editor-specific configuration file).
-
-**Note:** after jedi-language-server has started, changes to configurations mentioned below require restarting Vim / Neovim before they take effect.
+jedi-language-server supports top-level configuration items in `coc-settings.json` (or your editor-specific configuration file). After jedi-language-server has started, changes to configurations mentioned below require restarting Vim / Neovim before they take effect.
 
 The following is a snippet of `coc-settings.json` with defaults or with acceptable values:
+
+**Note: you probably do NOT need most of these configuration options. Use what you actually need, but the defaults should be enough for most users on POSIX-compliant systems. Blind copy/pasting may yield surprising results.**
 
 ```json
 {

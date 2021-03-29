@@ -2,7 +2,7 @@
 
 [![image-npm-version](https://img.shields.io/npm/v/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
 [![image-npm-downloads](https://img.shields.io/npm/dt/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
-[![image-pypi-version](https://img.shields.io/pypi/v/jedi-language-server.svg)](https://python.org/pypi/jedi-language-server)
+[![image-python-versions](https://img.shields.io/badge/python-3.6.1+-blue)](https://python.org/pypi/jedi-language-server)
 [![image-npm-license](https://img.shields.io/npm/l/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
 [![image-node-versions](https://img.shields.io/node/v/coc-jedi)](https://www.npmjs.com/package/coc-jedi)
 [![image-python-versions](https://img.shields.io/pypi/pyversions/jedi-language-server.svg)](https://python.org/pypi/jedi-language-server)

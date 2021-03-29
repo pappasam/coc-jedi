@@ -357,6 +357,16 @@ _Note: replace `/PATH/TO/JEDI/LANGUAGE/SERVER` with your path. If `jedi-language
 
 If this does not resolve your issue, please create a GitHub issue describing your Python environment and problem.
 
+### Relative imports don't complete correctly
+
+Relative imports should normally work correctly, but if they do not, your [LSP workspace root path](https://microsoft.github.io/language-server-protocol/specification#initialize) is most likely incorrect. For example, when you use a file explorer like [ranger](https://github.com/ranger/ranger), your root path will likely be the same directory as the file you're opening. When you open a file directly with Vim, your root path is your current working directory. See this GIF:
+
+![relative-imports](./img/relative-imports.gif)
+
+When Vim's current working directory is deep within a project's tree, things like relative imports won't work correctly. They ONLY work when Vim's current working directory (and, therefore, your LSP workspace) can be outside of the package where relative imports take place.
+
+In short: if you want relative imports to work correctly, you should generally open Vim in the root of your project. Some file explorers seem to prevent this from happening.
+
 ## License
 
 MIT

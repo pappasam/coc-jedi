@@ -82,7 +82,7 @@ Enable (or disable) jedi-language-server.
 Enable/disable jedi-language-server's message on startup.
 
 - type: `boolean`
-- default: `true`
+- default: `false`
 
 ### jedi.markupKindPreferred
 

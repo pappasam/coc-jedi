@@ -317,6 +317,46 @@ If using Neovim/coc, this can easily be done with [coc-diagnostic](https://githu
 }
 ```
 
+If you experience any problems with pylint you can configure [coc-diagnostic](https://github.com/iamcco/coc-diagnostic) to use [flake8](https://gitlab.com/pycqa/flake8) as a linter instead:
+
+```json
+  "diagnostic-languageserver.filetypes": {
+    "python": "flake8",
+  },
+ "diagnostic-languageserver.linters": {
+    "flake8": {
+      "sourceName": "flake8",
+      "command": "flake8",
+      "debounce": 200,
+      "rootPatterns": [".git", "pyproject.toml", "setup.py"],
+      "args": [
+        "--ignore=E402,C901,W503,W504,E116,E702,C0103,C0114,C0115,C0116,C0103,C0301,W0613,W0102,R0903,R0902,R0914,R0915,R0205,W0703,W0702,W0603",
+        "--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s",
+        "-" 
+      ],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "formatLines": 1,
+      "formatPattern": [
+        "(\\d+),(\\d+),([A-Z]),(.*)(\\r|\\n)*$",
+        {
+          "line": 1,
+          "column": 2,
+          "security": 3,
+          "message": 4
+        }
+      ],
+      "securities": {
+        "W": "info",
+        "E": "warning",
+        "F": "info",
+        "C": "info",
+        "N": "hint"
+      }
+    }
+  },
+```
+
 ## Code Formatting
 
 You can also use diagnostic [diagnostic-language-server](https://github.com/iamcco/diagnostic-languageserver) for code formatting:

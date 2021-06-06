@@ -242,7 +242,7 @@ Again, you probably don't need this.
 
 ### jedi.workspace.symbols.maxSymbols
 
-Performance optimization that sets names of folders that are ignored for `workspace/symbols`.
+Maximum number of symbols returned by a call to `workspace/symbols`.
 
 - type: `number`
 - default: 20
@@ -257,7 +257,7 @@ A value less than or equal to zero removes the maximum and allows jedi-language-
 
 ### jedi.workspace.symbols.ignoreFolders
 
-Maximum number of symbols returned by a call to `workspace/symbols`.
+Performance optimization that sets names of folders that are ignored for `workspace/symbols`.
 
 - type: `string[]`
 - default: `[".nox", ".tox", ".venv", "__pycache__", "venv"]`

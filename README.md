@@ -11,7 +11,7 @@
 
 If you would like to know more about why coc-jedi is useful, please read this [blog post](https://samroeca.com/coc-plugin.html#coc-plugin).
 
-Requires Python version>=3.6.1.
+Requires Python version>=3.6.2.
 
 ## Installation
 

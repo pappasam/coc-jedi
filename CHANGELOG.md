@@ -4,6 +4,43 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.27.0
+
+- Jls `0.32.0`
+
+### Added
+
+The following new options (documented in the README):
+
+- jedi.hover.enable
+- jedi.hover.disable.class.all
+- jedi.hover.disable.class.names
+- jedi.hover.disable.class.fullNames
+- jedi.hover.disable.function.all
+- jedi.hover.disable.function.names
+- jedi.hover.disable.function.fullNames
+- jedi.hover.disable.instance.all
+- jedi.hover.disable.instance.names
+- jedi.hover.disable.instance.fullNames
+- jedi.hover.disable.keyword.all
+- jedi.hover.disable.keyword.names
+- jedi.hover.disable.keyword.fullNames
+- jedi.hover.disable.module.all
+- jedi.hover.disable.module.names
+- jedi.hover.disable.module.fullNames
+- jedi.hover.disable.param.all
+- jedi.hover.disable.param.names
+- jedi.hover.disable.param.fullNames
+- jedi.hover.disable.path.all
+- jedi.hover.disable.path.names
+- jedi.hover.disable.path.fullNames
+- jedi.hover.disable.property.all
+- jedi.hover.disable.property.names
+- jedi.hover.disable.property.fullNames
+- jedi.hover.disable.statement.all
+- jedi.hover.disable.statement.names
+- jedi.hover.disable.statement.fullNames
+
 ## 0.26.2
 
 - Jls `0.31.2`

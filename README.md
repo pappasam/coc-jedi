@@ -37,7 +37,7 @@ I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager),
 
 jedi-language-server supports top-level configuration items in `coc-settings.json` (or your editor-specific configuration file). After jedi-language-server has started, changes to configurations mentioned below require restarting Vim / Neovim before they take effect.
 
-The following is a snippet of `coc-settings.json` with defaults or with acceptable values:
+The following is a snippet of `coc-settings.json` with some defaults or with acceptable values:
 
 **Note: you probably do NOT need most of these configuration options. Use what you actually need, but the defaults should be enough for most users on POSIX-compliant systems. Blind copy/pasting may yield surprising results.**
 
@@ -58,6 +58,10 @@ The following is a snippet of `coc-settings.json` with defaults or with acceptab
   "jedi.diagnostics.didOpen": true,
   "jedi.diagnostics.didChange": true,
   "jedi.diagnostics.didSave": true,
+  "jedi.hover.enable": true,
+  "jedi.hover.disable.keyword.all": false,
+  "jedi.hover.disable.keyword.names": [],
+  "jedi.hover.disable.keyword.fullNames": [],
   "jedi.workspace.extraPaths": [],
   "jedi.workspace.symbols.maxSymbols": 20,
   "jedi.workspace.symbols.ignoreFolders": [
@@ -211,6 +215,66 @@ When diagnostics are enabled, run on document save (to disk)
 - type: `boolean`
 - default: `true`
 
+### jedi.hover.enable
+
+Enable (or disable) all hover text. If set to `false`, will cause the hover method not to be registered to the language server.
+
+- type: `boolean`
+- default: `true`
+
+### jedi.hover.disable.\*
+
+The following options are available under this prefix:
+
+- jedi.hover.disable.class.all
+- jedi.hover.disable.class.names
+- jedi.hover.disable.class.fullNames
+- jedi.hover.disable.function.all
+- jedi.hover.disable.function.names
+- jedi.hover.disable.function.fullNames
+- jedi.hover.disable.instance.all
+- jedi.hover.disable.instance.names
+- jedi.hover.disable.instance.fullNames
+- jedi.hover.disable.keyword.all
+- jedi.hover.disable.keyword.names
+- jedi.hover.disable.keyword.fullNames
+- jedi.hover.disable.module.all
+- jedi.hover.disable.module.names
+- jedi.hover.disable.module.fullNames
+- jedi.hover.disable.param.all
+- jedi.hover.disable.param.names
+- jedi.hover.disable.param.fullNames
+- jedi.hover.disable.path.all
+- jedi.hover.disable.path.names
+- jedi.hover.disable.path.fullNames
+- jedi.hover.disable.property.all
+- jedi.hover.disable.property.names
+- jedi.hover.disable.property.fullNames
+- jedi.hover.disable.statement.all
+- jedi.hover.disable.statement.names
+- jedi.hover.disable.statement.fullNames
+
+#### jedi.hover.disable.[jedi-type].all
+
+Disable all hover text of jedi-type specified.
+
+- type: `bool`
+- default: `false`
+
+#### jedi.hover.disable.[jedi-type].names
+
+Disable hover text identified by name in list of jedi-type specified.
+
+- type: `string[]`
+- default: `[]`
+
+#### jedi.hover.disable.[jedi-type].fullNames
+
+Disable hover text identified by the fully qualified name in list of jedi-type specified. If no fully qualified name can be found, jedi-language-server will default to the name to prevent any unexpected behavior for users (relevant for jedi types like keywords that don't have full names).
+
+- type: `string[]`
+- default: `[]`
+
 ### jedi.workspace.extraPaths
 
 Add additional paths for Jedi's analysis. Useful with vendor directories, packages in a non-standard location, etc. You probably won't need to use this, but you'll be happy it's here when you need it!
@@ -332,7 +396,7 @@ If you experience any problems with pylint you can configure [coc-diagnostic](ht
       "args": [
         "--ignore=E402,C901,W503,W504,E116,E702,C0103,C0114,C0115,C0116,C0103,C0301,W0613,W0102,R0903,R0902,R0914,R0915,R0205,W0703,W0702,W0603",
         "--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s",
-        "-" 
+        "-"
       ],
       "offsetLine": 0,
       "offsetColumn": 0,

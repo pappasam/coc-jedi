@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.26.2",
+  "version": "0.27.0",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.31.2",
+  "jlsVersion": "0.32.0",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -140,6 +140,200 @@
           "type": "boolean",
           "default": true,
           "description": "Run diagnostics on document save (to disk)"
+        },
+        "jedi.hover.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable (or disable) all hover text."
+        },
+        "jedi.hover.disable.class.all": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable all hover text of type specified."
+        },
+        "jedi.hover.disable.class.names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by name in list of type specified."
+        },
+        "jedi.hover.disable.class.fullNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by the fully qualified name in list of type specified."
+        },
+        "jedi.hover.disable.function.all": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable all hover text of type specified."
+        },
+        "jedi.hover.disable.function.names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by name in list of type specified."
+        },
+        "jedi.hover.disable.function.fullNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by the fully qualified name in list of type specified."
+        },
+        "jedi.hover.disable.instance.all": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable all hover text of type specified."
+        },
+        "jedi.hover.disable.instance.names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by name in list of type specified."
+        },
+        "jedi.hover.disable.instance.fullNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by the fully qualified name in list of type specified."
+        },
+        "jedi.hover.disable.keyword.all": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable all hover text of type specified."
+        },
+        "jedi.hover.disable.keyword.names": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Disable hover text identified by name in list of type specified."
+        },
+        "jedi.hover.disable.keyword.fullNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by the fully qualified name in list of type specified."
+        },
+        "jedi.hover.disable.module.all": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable all hover text of type specified."
+        },
+        "jedi.hover.disable.module.names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by name in list of type specified."
+        },
+        "jedi.hover.disable.module.fullNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by the fully qualified name in list of type specified."
+        },
+        "jedi.hover.disable.param.all": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable all hover text of type specified."
+        },
+        "jedi.hover.disable.param.names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by name in list of type specified."
+        },
+        "jedi.hover.disable.param.fullNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by the fully qualified name in list of type specified."
+        },
+        "jedi.hover.disable.path.all": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable all hover text of type specified."
+        },
+        "jedi.hover.disable.path.names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by name in list of type specified."
+        },
+        "jedi.hover.disable.path.fullNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by the fully qualified name in list of type specified."
+        },
+        "jedi.hover.disable.property.all": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable all hover text of type specified."
+        },
+        "jedi.hover.disable.property.names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by name in list of type specified."
+        },
+        "jedi.hover.disable.property.fullNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by the fully qualified name in list of type specified."
+        },
+        "jedi.hover.disable.statement.all": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable all hover text of type specified."
+        },
+        "jedi.hover.disable.statement.names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by name in list of type specified."
+        },
+        "jedi.hover.disable.statement.fullNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Disable hover text identified by the fully qualified name in list of type specified."
         },
         "jedi.workspace.extraPaths": {
           "type": "array",

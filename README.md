@@ -26,7 +26,7 @@ Install in NeoVim / Vim with one of the following techniques:
 If using [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
-Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 ```
 
 I personally use [vim-packager](https://github.com/kristijanhusak/vim-packager), so if you'd like to go down the [package rabbit hole](https://shapeshed.com/vim-packages/), I suggest giving that a try.

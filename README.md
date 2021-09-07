@@ -478,4 +478,4 @@ MIT
 ## Credits
 
 - Built using [create-coc-extension](https://github.com/fannheyward/create-coc-extension).
-- Written by [Samuel Roeca](https://softwarejourneyman.com/pages/about.html#about)
+- Written by [Samuel Roeca](https://samroeca.com/)

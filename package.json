@@ -1,6 +1,6 @@
 {
   "name": "coc-jedi",
-  "version": "0.29.3",
+  "version": "0.29.4",
   "jlsName": "jedi-language-server",
   "jlsVersion": "0.34.3",
   "jlsVenv": ".venv",
@@ -88,6 +88,11 @@
           "type": "boolean",
           "default": true,
           "description": "Completions are by default case insensitive."
+        },
+        "jedi.jediSettings.debug": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable jedi.set_debug_function, which prints Jedi debugging messages to stdout."
         },
         "jedi.executable.command": {
           "type": "string",

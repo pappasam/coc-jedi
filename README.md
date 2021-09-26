@@ -48,6 +48,8 @@ The following is a snippet of `coc-settings.json` with some defaults or with acc
   "jedi.markupKindPreferred": "plaintext",
   "jedi.trace.server": "off",
   "jedi.jediSettings.autoImportModules": [],
+  "jedi.jediSettings.caseInsensitiveCompletion": true,
+  "jedi.jediSettings.debug": false,
   "jedi.executable.command": "jedi-language-server",
   "jedi.executable.args": [],
   "jedi.codeAction.nameExtractFunction": "jls_extract_def",
@@ -136,6 +138,19 @@ Completions are by default case insensitive. Set to `false` to make completions 
 ```json
 {
   "jedi.jediSettings.caseInsensitiveCompletion": false
+}
+```
+
+### jedi.jediSettings.debug
+
+Print jedi debugging messages to stdout.
+
+- type: `boolean`
+- default: `false`
+
+```json
+{
+  "jedi.jediSettings.debug": false
 }
 ```
 

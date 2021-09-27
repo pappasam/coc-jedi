@@ -143,7 +143,7 @@ Completions are by default case insensitive. Set to `false` to make completions 
 
 ### jedi.jediSettings.debug
 
-Print jedi debugging messages to stdout.
+Print jedi debugging messages to stderr.
 
 - type: `boolean`
 - default: `false`

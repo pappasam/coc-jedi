@@ -2,7 +2,7 @@
  * Helper functions to obtain the Python executable for jedi-language-server
  */
 
-import { Executable, WorkspaceConfiguration, workspace } from 'coc.nvim'
+import { Executable, WorkspaceConfiguration, window } from 'coc.nvim'
 import { JLS_NAME, JLS_VERSION, JLS_VENV } from './constants'
 import { execSync } from 'child_process'
 import rimraf from 'rimraf'
@@ -37,7 +37,7 @@ function createJlsVenvPosix(): string {
   }
   if (badVenv || badVersion) {
     rimraf.sync(pathVenv) // rm -rf
-    workspace.showMessage(
+    window.showMessage(
       `jedi: installing ${JLS_NAME}==${JLS_VERSION} in "${pathVenv}"`
     )
     const pathPip = path.join(pathVenv, 'bin', 'pip')
@@ -46,9 +46,9 @@ function createJlsVenvPosix(): string {
         `python3 -m venv ${pathVenv} && ` +
           `${pathPip} install -U pip ${JLS_NAME}==${JLS_VERSION}`
       )
-      workspace.showMessage(`jedi: installed ${JLS_NAME}==${JLS_VERSION}`)
+      window.showMessage(`jedi: installed ${JLS_NAME}==${JLS_VERSION}`)
     } catch (error) {
-      workspace.showMessage(`jedi: ${error}`, 'error')
+      window.showMessage(`jedi: ${error}`, 'error')
       return JLS_NAME
     }
   }

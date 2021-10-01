@@ -6,6 +6,7 @@ import {
   ExtensionContext,
   services,
   workspace,
+  window,
   LanguageClient,
 } from 'coc.nvim'
 import getJlsExecutable from './jlsExecutable'
@@ -37,6 +38,6 @@ export async function activate(context: ExtensionContext): Promise<void> {
     const args = serverOptions.args
     const cmd =
       args.length === 0 ? executable : `${executable} ${args.join(' ')}`
-    workspace.showMessage(`jedi: running "${cmd}"`)
+    window.showMessage(`jedi: running "${cmd}"`)
   })
 }

@@ -226,9 +226,9 @@ Regular Expression:
 
 #### Only private mangled names
 
-| Matches   | Non-Matches          |
-| --------- | -------------------- |
-| `__world` | `_hello`, `__dunder` |
+| Matches   | Non-Matches            |
+| --------- | ---------------------- |
+| `__world` | `_hello`, `__dunder__` |
 
 Regular Expression:
 

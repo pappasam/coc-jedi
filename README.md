@@ -421,6 +421,7 @@ If using Neovim/coc, this can easily be done with [coc-diagnostic](https://githu
   "pylint": {
     "sourceName": "pylint",
     "command": "pylint",
+    "debounce": 100,
     "args": [
       "--output-format",
       "text",
@@ -435,11 +436,12 @@ If using Neovim/coc, this can easily be done with [coc-diagnostic](https://githu
       {
         "line": 1,
         "column": 2,
+        "endColumn": 2,
         "security": 3,
         "message": 4
       }
     ],
-    "rootPatterns": [".git", "pyproject.toml", "setup.py"],
+    "rootPatterns": ["pyproject.toml", "setup.py", ".git"],
     "securities": {
       "informational": "hint",
       "refactor": "info",
@@ -449,6 +451,7 @@ If using Neovim/coc, this can easily be done with [coc-diagnostic](https://githu
       "fatal": "error"
     },
     "offsetColumn": 1,
+    "offsetColumnEnd": 1,
     "formatLines": 1
   }
 }

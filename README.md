@@ -56,6 +56,7 @@ The following is a snippet of `coc-settings.json` with some defaults or with acc
   "jedi.codeAction.nameExtractVariable": "jls_extract_var",
   "jedi.completion.disableSnippets": false,
   "jedi.completion.resolveEagerly": false,
+  "jedi.completion.ignorePatterns": [],
   "jedi.diagnostics.enable": true,
   "jedi.diagnostics.didOpen": true,
   "jedi.diagnostics.didChange": true,
@@ -201,6 +202,63 @@ Return all completion results in initial completion request. Set to `true` if yo
 
 - type: `boolean`
 - default: `false`
+
+### jedi.completion.ignorePatterns
+
+A list of regular expressions. If any regular expression in ignorePatterns matches a completion's name, that completion item is not returned to the client.
+
+- type: `string[]`
+- default: `[]`
+
+In general, you should prefer the default value for this option. Jedi is very good at filtering values for end users. That said, there are situations where IDE developers, or some programmers in some code bases, may want to filter some completions by name. This flexible interface is provided to accommodate these advanced use cases. If you have one of these advanced use cases, see below for some example patterns (and their corresponding regular expression).
+
+#### All Private Names
+
+| Matches             | Non-Matches  |
+| ------------------- | ------------ |
+| `_hello`, `__world` | `__dunder__` |
+
+Regular Expression:
+
+```re
+^_{1,3}$|^_[^_].*$|^__.*(?<!__)$
+```
+
+#### Only private mangled names
+
+| Matches   | Non-Matches          |
+| --------- | -------------------- |
+| `__world` | `_hello`, `__dunder` |
+
+Regular Expression:
+
+```re
+^_{2,3}$|^__.*(?<!__)$
+```
+
+#### Only dunder names
+
+| Matches      | Non-Matches         |
+| ------------ | ------------------- |
+| `__dunder__` | `_hello`, `__world` |
+
+Regular Expression:
+
+```re
+^__.*?__$
+```
+
+#### All names beginning with underscore
+
+| Matches                           | Non-Matches |
+| --------------------------------- | ----------- |
+| `_hello`, `__world`, `__dunder__` | `regular`   |
+
+Regular Expression:
+
+```re
+^_.*$
+```
 
 ### jedi.diagnostics.enable
 

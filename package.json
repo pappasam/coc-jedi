@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.29.6",
+  "version": "0.29.7",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.34.6",
+  "jlsVersion": "0.34.7",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -125,6 +125,14 @@
           "type": "boolean",
           "default": false,
           "description": "Return all completion results in initial completion request"
+        },
+        "jedi.completion.ignorePatterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "A list of regular expressions. If any regular expression matches a completion, that completion is not returned to the client."
         },
         "jedi.diagnostics.enable": {
           "type": "boolean",

@@ -457,7 +457,7 @@ If using Neovim/coc, this can easily be done with [coc-diagnostic](https://githu
 }
 ```
 
-If you experience any problems with pylint you can configure [coc-diagnostic](https://github.com/iamcco/coc-diagnostic) to use [flake8](https://gitlab.com/pycqa/flake8) as a linter instead:
+If you experience any problems with pylint you can configure [coc-diagnostic](https://github.com/iamcco/coc-diagnostic) to use [flake8](https://github.com/pycqa/flake8) as a linter instead:
 
 ```json
   "diagnostic-languageserver.filetypes": {

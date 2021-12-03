@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.29.13
+
+- Jedi's virtualenv now explicitly has access to the system's site-packages. Resolves <https://github.com/pappasam/coc-jedi/issues/11> and <https://github.com/pappasam/coc-jedi/issues/35>.
+
 ## 0.29.12
 
 - Jls `0.34.12`

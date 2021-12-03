@@ -44,8 +44,8 @@ function createJlsVenvPosix(): string {
     try {
       execSync(
         'python3 -m venv ' +
-          `--system-site-packages --upgrade-deps --clear ${pathVenv} && ` +
-          `${pathPip} install -U ${JLS_NAME}==${JLS_VERSION}`
+          `--system-site-packages --clear ${pathVenv} && ` +
+          `${pathPip} install -U pip ${JLS_NAME}==${JLS_VERSION}`
       )
       window.showMessage(`jedi: installed ${JLS_NAME}==${JLS_VERSION}`)
     } catch (error) {

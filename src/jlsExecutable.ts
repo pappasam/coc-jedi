@@ -31,7 +31,7 @@ function createJlsVenvPosix(): string {
   let badVersion = true
   try {
     const version = getJlsVersionPosix(pathJls)
-    badVersion = (version !== JLS_VERSION)
+    badVersion = version !== JLS_VERSION
   } catch (error) {
     badVenv = true
   }
@@ -43,8 +43,9 @@ function createJlsVenvPosix(): string {
     const pathPip = path.join(pathVenv, 'bin', 'pip')
     try {
       execSync(
-        `python3 -m venv ${pathVenv} && ` +
-          `${pathPip} install -U pip ${JLS_NAME}==${JLS_VERSION}`
+        'python3 -m venv ' +
+          `--system-site-packages --upgrade-deps --clear ${pathVenv} && ` +
+          `${pathPip} install -U ${JLS_NAME}==${JLS_VERSION}`
       )
       window.showMessage(`jedi: installed ${JLS_NAME}==${JLS_VERSION}`)
     } catch (error) {

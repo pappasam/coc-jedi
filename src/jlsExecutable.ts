@@ -7,6 +7,7 @@ import { JLS_NAME, JLS_VERSION, JLS_VENV } from './constants'
 import { execSync } from 'child_process'
 import rimraf from 'rimraf'
 import path from 'path'
+import fs from 'fs'
 
 interface JlsExecutable extends Executable {
   command: string
@@ -27,6 +28,7 @@ function getJlsVersionPosix(jlsPath: string): string | undefined {
 function createJlsVenvPosix(): string {
   const pathVenv = path.join(path.dirname(__dirname), JLS_VENV)
   const pathJls = path.join(pathVenv, 'bin', JLS_NAME)
+  const pathPyvenv = path.join(pathVenv, 'pyvenv.cfg')
   let badVenv = false
   let badVersion = true
   try {
@@ -47,6 +49,14 @@ function createJlsVenvPosix(): string {
           `--clear ${pathVenv} && ` +
           `${pathPip} install -U pip ${JLS_NAME}==${JLS_VERSION}`
       )
+      // Following lines necessary because we cannot use --system-site-packages
+      // flag due to this issue: https://github.com/pypa/pip/issues/1408
+      const pyvenvDirty = fs.readFileSync(pathPyvenv).toString()
+      const pyvenvClean = pyvenvDirty.replace(
+        'include-system-site-packages = false',
+        'include-system-site-packages = true'
+      )
+      fs.writeFileSync(pathPyvenv, pyvenvClean)
       window.showMessage(`jedi: installed ${JLS_NAME}==${JLS_VERSION}`)
     } catch (error) {
       window.showMessage(`jedi: ${error}`, 'error')

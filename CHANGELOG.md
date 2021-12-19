@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.30.0
+
+- Jls `0.35.0`
+
 ## 0.29.15
 
 - Remove usage of `--system-site-packages` because it caused `jedi-language-server` to be installed in the system Python for some users. Instead, we rely on maually modifying `pyvenv.cfg` after the virtualenv is created and `jedi-language-server` is installed. See: <https://github.com/pypa/pip/issues/1408> and <https://github.com/pappasam/coc-jedi/issues/48>

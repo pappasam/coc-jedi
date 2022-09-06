@@ -134,7 +134,7 @@ If you're noticing that modules like `numpy` and `pandas` are taking a super lon
 Completions are by default case insensitive. Set to `false` to make completions case sensitive.
 
 - type: `boolean`
-- default: `false`
+- default: `true`
 
 ```json
 {

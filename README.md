@@ -66,6 +66,7 @@ The following is a snippet of `coc-settings.json` with some defaults or with acc
   "jedi.hover.disable.keyword.names": [],
   "jedi.hover.disable.keyword.fullNames": [],
   "jedi.workspace.extraPaths": [],
+  "jedi.workspace.environmentPath": "/path/to/venv/bin/python",
   "jedi.workspace.symbols.maxSymbols": 20,
   "jedi.workspace.symbols.ignoreFolders": [
     ".nox",
@@ -376,6 +377,14 @@ Assume that `funky/haha.py` contains 1 line, `x = 12`, and your build system doe
 When editing `test.py`, you'll get completions, goto definition, and all other lsp features for the line `from haha import ...`.
 
 Again, you probably don't need this.
+
+### jedi.workspace.environmentPath
+
+The Python executable path, typically the path of a virtual environment.
+
+- type: `string`
+
+If omitted, defaults to the active Python environment.
 
 ### jedi.workspace.symbols.maxSymbols
 

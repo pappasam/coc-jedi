@@ -1,8 +1,8 @@
 {
   "name": "coc-jedi",
-  "version": "0.32.0",
+  "version": "0.33.0",
   "jlsName": "jedi-language-server",
-  "jlsVersion": "0.37.0",
+  "jlsVersion": "0.38.0",
   "jlsVenv": ".venv",
   "description": "coc.nvim wrapper for the jedi-language-server for Python",
   "author": "Sam Roeca <samuel.roeca@gmail.com>",
@@ -355,6 +355,10 @@
           },
           "default": [],
           "description": "Add additional paths for Jedi's analysis. Useful with vendor directories, packages in a non-standard location, etc."
+        },
+        "jedi.workspace.environmentPath": {
+          "type": "string",
+          "description": "The Python executable path, typically the path of a virtual environment. If omitted, defaults to the active Python environment."
         },
         "jedi.workspace.symbols.maxSymbols": {
           "type": "number",

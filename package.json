@@ -1,6 +1,6 @@
 {
   "name": "coc-jedi",
-  "version": "0.33.0",
+  "version": "0.33.1",
   "jlsName": "jedi-language-server",
   "jlsVersion": "0.38.0",
   "jlsVenv": ".venv",
@@ -59,11 +59,12 @@
           "description": "Enable/disable jedi-language-server's message on startup"
         },
         "jedi.markupKindPreferred": {
-          "type": "string",
+          "type": "string | null",
           "enum": [
             "markdown",
             "plaintext"
           ],
+          "default": null,
           "description": "The preferred MarkupKind for jedi-language-server messages. If omitted, defaults to client preferences"
         },
         "jedi.trace.server": {
@@ -90,12 +91,13 @@
           "description": "Completions are by default case insensitive."
         },
         "jedi.jediSettings.debug": {
-          "type": "boolean",
+          "type": "boolean ",
           "default": false,
           "description": "Enable jedi.set_debug_function, which prints Jedi debugging messages to stdout."
         },
         "jedi.executable.command": {
-          "type": "string",
+          "type": "string | null",
+          "default": null,
           "description": "The jedi-language-server executable. If omitted, coc-managed default is used"
         },
         "jedi.executable.args": {
@@ -357,7 +359,8 @@
           "description": "Add additional paths for Jedi's analysis. Useful with vendor directories, packages in a non-standard location, etc."
         },
         "jedi.workspace.environmentPath": {
-          "type": "string",
+          "type": "string | null",
+          "default": null,
           "description": "The Python executable path, typically the path of a virtual environment. If omitted, defaults to the active Python environment."
         },
         "jedi.workspace.symbols.maxSymbols": {

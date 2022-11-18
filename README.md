@@ -57,7 +57,7 @@ The following is a snippet of `coc-settings.json` with some defaults or with acc
   "jedi.completion.disableSnippets": false,
   "jedi.completion.resolveEagerly": false,
   "jedi.completion.ignorePatterns": [],
-  "jedi.diagnostics.enable": true,
+  "jedi.diagnostics.enable": false,
   "jedi.diagnostics.didOpen": true,
   "jedi.diagnostics.didChange": true,
   "jedi.diagnostics.didSave": true,
@@ -263,10 +263,12 @@ Regular Expression:
 
 ### jedi.diagnostics.enable
 
-Enables (or disables) diagnostics provided by Jedi
+Enables (or disables) diagnostics provided by Jedi.
 
 - type: `boolean`
-- default: `true`
+- default: `false`
+
+**Note:** This is disabled by default because Jedi's syntax checking is not supported for new syntax in Python 3.10+. For a detailed discussion on this topic, please refer to [this issue](https://github.com/pappasam/jedi-language-server/issues/187).
 
 ### jedi.diagnostics.didOpen
 
@@ -416,11 +418,13 @@ Performance optimization that sets names of folders that are ignored for `worksp
 
 If you manually set this option, it overrides the default. Setting it to an empty array will result in no ignored folders.
 
-## Additional Diagnostics
+## Diagnostics
 
-jedi-langugage-server provides diagnostics about syntax errors, powered by Jedi. If you would like additional diagnostics, we suggest using the powerful [diagnostic-language-server](https://github.com/iamcco/diagnostic-languageserver).
+Jedi-powered diagnostics are disabled by default because Jedi's syntax checking is not supported for new syntax in Python 3.10+. For a detailed discussion on this topic, please refer to [this issue](https://github.com/pappasam/jedi-language-server/issues/187).
 
-If using Neovim/coc, this can easily be done with [coc-diagnostic](https://github.com/iamcco/coc-diagnostic). Configure with [pylint](https://github.com/PyCQA/pylint) in your `coc-settings.json`:
+If you would like diagnostics (from [pylint](https://github.com/PyCQA/pylint), [mypy](https://github.com/python/mypy), etc.), we recommend using the powerful [diagnostic-language-server](https://github.com/iamcco/diagnostic-languageserver).
+
+If using Neovim/coc, this can easily be done with [coc-diagnostic](https://github.com/iamcco/coc-diagnostic). An example configuration for pylint in your `coc-settings.json`:
 
 ```json
 "diagnostic-languageserver.filetypes": {
@@ -508,7 +512,7 @@ If you experience any problems with pylint you can configure [coc-diagnostic](ht
 
 ## Code Formatting
 
-You can also use diagnostic [diagnostic-language-server](https://github.com/iamcco/diagnostic-languageserver) for code formatting:
+You can also use [diagnostic-language-server](https://github.com/iamcco/diagnostic-languageserver) for code formatting:
 
 ```json
 "diagnostic-languageserver.formatFiletypes": {
@@ -529,6 +533,8 @@ You can also use diagnostic [diagnostic-language-server](https://github.com/iamc
   }
 }
 ```
+
+Alternatively, you can rely on non-LSP-based tooling for your code formatting needs (which I do, for performance and logging reasons). One great tool the adventurous types might consider: <https://github.com/pappasam/vim-filetype-formatter>.
 
 ## FAQ / Debugging
 

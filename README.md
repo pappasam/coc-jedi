@@ -57,7 +57,7 @@ The following is a snippet of `coc-settings.json` with some defaults or with acc
   "jedi.completion.disableSnippets": false,
   "jedi.completion.resolveEagerly": false,
   "jedi.completion.ignorePatterns": [],
-  "jedi.diagnostics.enable": false,
+  "jedi.diagnostics.enable": true,
   "jedi.diagnostics.didOpen": true,
   "jedi.diagnostics.didChange": true,
   "jedi.diagnostics.didSave": true,
@@ -266,9 +266,7 @@ Regular Expression:
 Enables (or disables) diagnostics provided by Jedi.
 
 - type: `boolean`
-- default: `false`
-
-**Note:** This is disabled by default because Jedi's syntax checking is not supported for new syntax in Python 3.10+. For a detailed discussion on this topic, please refer to [this issue](https://github.com/pappasam/jedi-language-server/issues/187).
+- default: `true`
 
 ### jedi.diagnostics.didOpen
 
@@ -418,9 +416,7 @@ Performance optimization that sets names of folders that are ignored for `worksp
 
 If you manually set this option, it overrides the default. Setting it to an empty array will result in no ignored folders.
 
-## Diagnostics
-
-Jedi-powered diagnostics are disabled by default because Jedi's syntax checking is not supported for new syntax in Python 3.10+. For a detailed discussion on this topic, please refer to [this issue](https://github.com/pappasam/jedi-language-server/issues/187).
+## Additional Diagnostics
 
 If you would like diagnostics (from [pylint](https://github.com/PyCQA/pylint), [mypy](https://github.com/python/mypy), etc.), we recommend using the powerful [diagnostic-language-server](https://github.com/iamcco/diagnostic-languageserver).
 
